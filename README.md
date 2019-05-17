@@ -1,4 +1,4 @@
-# YDnote 
+
 ###  该项目注意记录在YD生活的点点滴滴
-+  每一个阶段都在steps文件夹下，对应的目录在README.md文件中查阅。
-+ 项目在pro文件夹下，也有对应的目录索引
+-   [项目位置](./pro/README.md)
+-   [学习总结](./steps/README.md)
