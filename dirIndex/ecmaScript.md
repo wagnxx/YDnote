@@ -7,5 +7,5 @@
 
 
 ### 专题二
-- [js函数式编程](../steps/step2/js/)
+- [js函数式编程](../steps/step2/js/js函数式编程.md)
 
