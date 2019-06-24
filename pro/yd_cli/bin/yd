@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+const program = require('commander');
+const Printer =require('@darkobits/lolcatjs');
+ 
+
+const input=[
+'                _',
+'    _   _    __| |',
+'   | | | |  / _` |',
+'   | |_| | | (_| |',
+'    \__,  |   \__,_|',
+'    |___/ '        ,
+].join('\n');
+
+program.version(Printer.default.fromString(input),"-v,--version")
+.parse(process.argv);
+
