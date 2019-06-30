@@ -3,5 +3,15 @@ const data={
     msg:"hell"
 }
 
+var app = new Vue({
+    el: '#app6',
+    data: {
+      message: 'Hello Vue!'
+    },
+    methods: {
+      
+    },
+  })
 
-module.exports = data;
+// module.exports = data;
+export default data;

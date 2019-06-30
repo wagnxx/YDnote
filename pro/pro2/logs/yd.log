@@ -1,0 +1,171 @@
+[2019-06-30T19:46:24.974] [ERROR] default - ReferenceError: ctx is not defined
+    at actionIndex (D:\pro\note\note\pro\pro2\controllers\indexController.js:6:9)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:6:23)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at serve (D:\pro\note\note\pro\pro2\node_modules\koa-static\index.js:53:15)
+[2019-06-30T21:19:16.182] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:17:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:22:37.547] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:17:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:25:00.066] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:17:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:25:32.795] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:17:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:29:04.649] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:17:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:30:22.037] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:17:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:31:02.525] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:18:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:31:21.433] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:18:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:31:28.898] [ERROR] default - ReferenceError: ydfetch is not defined
+    at Promise (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:18:21)
+    at new Promise (<anonymous>)
+    at SafeRequest.fetch (D:\pro\note\note\pro\pro2\utils\SafeRequest.js:16:16)
+    at Books.getData (D:\pro\note\note\pro\pro2\models\Books.js:31:29)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:12:36)
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:186:18)
+    at Router._lookup (D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:198:12)
+    at D:\pro\note\note\pro\pro2\node_modules\koa-simple-router\index.js:138:21
+    at dispatch (D:\pro\note\note\pro\pro2\node_modules\koa-compose\index.js:42:32)
+    at app.use (D:\pro\note\note\pro\pro2\middlewares\errorHandler.js:15:19)
+[2019-06-30T21:36:55.981] [ERROR] default - Error: Unexpected end of tag "block" on line 17 in file D:\pro\note\note\pro\pro2\views\books\list.html.
+    at Object.exports.throwError (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\utils.js:188:9)
+    at parseTag (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:659:15)
+    at D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:778:15
+    at Object.exports.each (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\utils.js:45:11)
+    at Object.exports.parse (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:755:9)
+    at exports.Swig.parse (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:383:19)
+    at exports.Swig.precompile (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:526:23)
+    at exports.Swig.compile (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:651:16)
+    at D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:729:27
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+[2019-06-30T21:37:24.912] [ERROR] default - Error: Unexpected end of tag "block" on line 17 in file D:\pro\note\note\pro\pro2\views\books\list.html.
+    at Object.exports.throwError (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\utils.js:188:9)
+    at parseTag (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:659:15)
+    at D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:778:15
+    at Object.exports.each (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\utils.js:45:11)
+    at Object.exports.parse (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:755:9)
+    at exports.Swig.parse (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:383:19)
+    at exports.Swig.precompile (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:526:23)
+    at exports.Swig.compile (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:651:16)
+    at D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:729:27
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+[2019-06-30T21:37:38.925] [ERROR] default - Error: Unexpected end of tag "block" on line 17 in file D:\pro\note\note\pro\pro2\views\books\list.html.
+    at Object.exports.throwError (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\utils.js:188:9)
+    at parseTag (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:659:15)
+    at D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:778:15
+    at Object.exports.each (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\utils.js:45:11)
+    at Object.exports.parse (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\parser.js:755:9)
+    at exports.Swig.parse (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:383:19)
+    at exports.Swig.precompile (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:526:23)
+    at exports.Swig.compile (D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:651:16)
+    at D:\pro\note\note\pro\pro2\node_modules\swig-templates\lib\swig.js:729:27
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+[2019-06-30T21:42:22.428] [ERROR] default - SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:14:22)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2019-06-30T21:43:46.313] [ERROR] default - TypeError: Cannot read property 'data' of undefined
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:15:23)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2019-06-30T21:44:00.017] [ERROR] default - TypeError: Cannot read property 'data' of undefined
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:15:23)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2019-06-30T21:44:10.795] [ERROR] default - SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:14:22)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2019-06-30T21:44:27.360] [ERROR] default - SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:14:22)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2019-06-30T21:44:49.352] [ERROR] default - SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at actionList (D:\pro\note\note\pro\pro2\controllers\BooksController.js:14:22)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
