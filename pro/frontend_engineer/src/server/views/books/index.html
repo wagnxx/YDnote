@@ -1,0 +1,26 @@
+{% extends '../../layouts/layout.html' %} {% block title %}My Page{% endblock %} {%
+block head %} {% parent %}
+<link rel="stylesheet" href="/styles/index.css" />
+{% endblock %} {% block content %}
+<script src="/script/yd.js"></script>
+<p>index page</p>
+<h1>精彩的一天，难忘的一个阶段</h1>
+<p>ssr数据：[[data]]</p>
+<div id="app6">
+  {{ message }}
+  <p>
+    <input type="text" v-model="message" />
+  </p>
+</div>
+<script nomodule src="/scripts/index.js"></script>
+<script
+  type="module"
+  src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/system.min.js"
+></script>
+<script type="module">
+  System.import("/scripts/index-bundle.js").then(_ => {
+    console.log(_);
+  });
+</script>
+
+{% endblock %}

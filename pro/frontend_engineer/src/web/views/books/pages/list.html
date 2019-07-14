@@ -1,0 +1,16 @@
+{% extends '../../layouts/layout.html' %} {% block title %}My Page{% endblock %} {%
+block head %} {% parent %}
+<!-- <link rel="stylesheet" href="/styles/index.css" /> -->
+
+<!--injectcss-->
+{% endblock %} {% block content %}
+ 
+
+{% include "@components/list/list.html" %}
+
+{% endblock %}
+
+
+{% block  scripts %}
+<!--injectjs-->
+{% endblock %}

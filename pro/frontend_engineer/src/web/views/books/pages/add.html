@@ -1,0 +1,17 @@
+{% extends '../layouts/layout.html' %} {% block title %}My Page{% endblock %} {%
+block head %} {% parent %}
+<link rel="stylesheet" href="/styles/index.css" />
+{% endblock %} {% block content %}
+ 
+
+{% include "@components/list/list.html" %}
+
+{% endblock %}
+
+
+{% block  scripts %}
+ <script>
+ console.log("图书管理")
+ </script>
+
+{% endblock %}
