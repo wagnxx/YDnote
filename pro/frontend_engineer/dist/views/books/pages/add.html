@@ -1,12 +1,13 @@
 {% extends '../../layouts/layout.html' %}
- {% block title %}图书列表页{% endblock %}
+ {% block title %}添加图书{% endblock %}
 {% block head %} {% parent %}
 <!-- <link rel="stylesheet" href="/styles/index.css" /> -->
 
-<!--injectcss-->
+
 {% endblock %} 
 {% block content %} 
-    {% include "@components/list/list.html" %}
+  <h1>添加图书</h1>
  {% endblock %} {% block scripts %}
-<!--injectjs-->
+<script class="lazyload-js" src="/scripts/books-add.bundle.js"></script>
 {% endblock %}
+

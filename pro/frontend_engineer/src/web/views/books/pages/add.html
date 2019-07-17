@@ -1,17 +1,13 @@
-{% extends '../layouts/layout.html' %} {% block title %}My Page{% endblock %} {%
-block head %} {% parent %}
-<link rel="stylesheet" href="/styles/index.css" />
-{% endblock %} {% block content %}
- 
+{% extends '../../layouts/layout.html' %}
+ {% block title %}添加图书{% endblock %}
+{% block head %} {% parent %}
+<!-- <link rel="stylesheet" href="/styles/index.css" /> -->
 
-{% include "@components/list/list.html" %}
-
+<!--injectcss-->
+{% endblock %} 
+{% block content %} 
+  <h1>添加图书</h1>
+ {% endblock %} {% block scripts %}
+<!--injectjs-->
 {% endblock %}
 
-
-{% block  scripts %}
- <script>
- console.log("图书管理")
- </script>
-
-{% endblock %}

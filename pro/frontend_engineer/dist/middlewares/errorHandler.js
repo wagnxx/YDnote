@@ -5,12 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 const errorHandler = {
-  error(app, logger) {
+  error(app) {
     app.use(async (ctx, next) => {
       try {
         await next();
       } catch (error) {
-        logger.error(error);
+        ctx.logger.error(error);
         ctx.status = error.status || 500;
         ctx.body = error;
       }

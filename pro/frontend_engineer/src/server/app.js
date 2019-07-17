@@ -5,9 +5,22 @@ import { wrap } from 'co';
 import config from './config';
 import errorHandler from './middlewares/errorHandler';
 const app = new Koa();
-import controllerInit from './controllers';
+
 import { getLogger, configure } from 'log4js';
-const logger = getLogger();
+import {createContainer,Lifetime} from 'awilix'
+import {loadControllers,scopePerRequest} from 'awilix-koa'
+
+// 把service融入到容器中
+const container = createContainer();
+container.loadModules([__dirname+'/services/*.js'],{
+  formatName:'camelCase',
+  resolverOptions:{
+    lifetime: Lifetime.SCOPED,
+  }
+});
+// 终极注入
+app.use(scopePerRequest(container));
+
 configure({
   appenders: { cheese: { type: 'file', filename: __dirname+'/logs/yd.log' } },
   categories: { default: { appenders: ['cheese'], level: 'error' } }
@@ -16,9 +29,10 @@ configure({
 
 app.use(server(config.staticDir))
 
-errorHandler.error(app,logger);
-
-controllerInit(app);
+const logger = getLogger();
+app.context.logger = logger;
+errorHandler.error(app);
+ 
 
 app.context.render = wrap(render({
     root:config.viewDir,
@@ -28,6 +42,8 @@ app.context.render = wrap(render({
     writeBody:false,
     varControls:["[[","]]"]
 }));
+
+app.use(loadControllers(__dirname+'/controllers/*.js'))
 
 app.listen(config.port,()=>{
      console.log('success running over'+config.port)

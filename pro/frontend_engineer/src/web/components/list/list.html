@@ -1,10 +1,18 @@
-
-<ul>
-    {% for val in data %}
-
-    <li>[[val.name]]</li>
- 
-
-    {% endfor %}
-
-</ul>
+<div id="js-hooks-data" class="pjaxcontext">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>编号</th>
+            <th>书名</th>
+            <th>作者</th>
+        </tr>
+        {% for val in data %}
+        <tr>
+      
+          <td>[[val.id]]</td>
+          <td>[[val.name]]</td>
+          <td>[[val.author]]</td>
+      
+        </tr>
+        {% endfor %}
+    </table>
+</div>

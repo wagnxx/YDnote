@@ -1,16 +1,12 @@
-{% extends '../../layouts/layout.html' %} {% block title %}My Page{% endblock %} {%
-block head %} {% parent %}
+{% extends '../../layouts/layout.html' %}
+ {% block title %}图书列表页{% endblock %}
+{% block head %} {% parent %}
 <!-- <link rel="stylesheet" href="/styles/index.css" /> -->
 
 
-{% endblock %} {% block content %}
- 
-
-{% include "../../../components/list/list.html" %}
-
-{% endblock %}
-
-
-{% block  scripts %}
-<script type="modue" src="/scripts/books-list.bundle.js"></script>
+{% endblock %} 
+{% block content %} 
+    {% include "../../../components/list/list.html" %}
+ {% endblock %} {% block scripts %}
+<script class="lazyload-js" src="/scripts/books-list.bundle.js"></script>
 {% endblock %}

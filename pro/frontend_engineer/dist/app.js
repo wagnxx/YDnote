@@ -12,14 +12,25 @@ var _config = _interopRequireDefault(require("./config"));
 
 var _errorHandler = _interopRequireDefault(require("./middlewares/errorHandler"));
 
-var _controllers = _interopRequireDefault(require("./controllers"));
-
 var _log4js = require("log4js");
+
+var _awilix = require("awilix");
+
+var _awilixKoa = require("awilix-koa");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = new _koa.default();
-const logger = (0, _log4js.getLogger)();
+// 把service融入到容器中
+const container = (0, _awilix.createContainer)();
+container.loadModules([__dirname + '/services/*.js'], {
+  formatName: 'camelCase',
+  resolverOptions: {
+    lifetime: _awilix.Lifetime.SCOPED
+  }
+}); // 终极注入
+
+app.use((0, _awilixKoa.scopePerRequest)(container));
 (0, _log4js.configure)({
   appenders: {
     cheese: {
@@ -35,10 +46,11 @@ const logger = (0, _log4js.getLogger)();
   }
 });
 app.use((0, _koaStatic.default)(_config.default.staticDir));
+const logger = (0, _log4js.getLogger)();
+app.context.logger = logger;
 
-_errorHandler.default.error(app, logger);
+_errorHandler.default.error(app);
 
-(0, _controllers.default)(app);
 app.context.render = (0, _co.wrap)((0, _koaSwig.default)({
   root: _config.default.viewDir,
   autoescape: true,
@@ -47,6 +59,7 @@ app.context.render = (0, _co.wrap)((0, _koaSwig.default)({
   writeBody: false,
   varControls: ["[[", "]]"]
 }));
+app.use((0, _awilixKoa.loadControllers)(__dirname + '/controllers/*.js'));
 app.listen(_config.default.port, () => {
   console.log('success running over' + _config.default.port);
 });

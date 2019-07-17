@@ -4,7 +4,7 @@ const assetsHelp = function(data) {
   let js = [];
   let css = [];
   const dir = {
-    js: item => `<script type="modue" src="${item}"></script>`,
+    js: item => `<script class="lazyload-js" src="${item}"></script>`,
     css: item => `<link rel="stylesheet" href="${item}" />`
   };
   for (let jsitem of data.js) {

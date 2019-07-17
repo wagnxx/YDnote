@@ -13,7 +13,10 @@ function builddev() {
       .pipe(
         babel({
           babelrc: false,
-          plugins: ["@babel/plugin-transform-modules-commonjs"]
+          plugins: [
+            ["@babel/plugin-proposal-decorators", { legacy: true }],
+            "@babel/plugin-transform-modules-commonjs"
+          ]
         })
       )
       .pipe(gulp.dest("dist"));
@@ -28,25 +31,28 @@ function buildprod() {
       babel({
         babelrc: false,
         ignore: cleanEntry,
-        plugins: ["@babel/plugin-transform-modules-commonjs"]
+        plugins: [
+          ["@babel/plugin-proposal-decorators", { legacy: true }],
+          "@babel/plugin-transform-modules-commonjs"
+        ]
       })
     )
     .pipe(gulp.dest("dist"));
 }
 
 function buildconfig() {
-    return gulp
+  return gulp
     .src(entry)
     .pipe(
       rollup({
         input: cleanEntry,
-        output:{
-            format:"cjs"
+        output: {
+          format: "cjs"
         },
-        plugins:[
-            replace({
-                "process.env.NODE_ENV":JSON.stringify("production")
-            })
+        plugins: [
+          replace({
+            "process.env.NODE_ENV": JSON.stringify("production")
+          })
         ]
       })
     )
@@ -58,7 +64,7 @@ function lint() {}
 let build = gulp.series(builddev);
 
 if (process.env.NODE_ENV == "production") {
-  build = gulp.series(buildprod,buildconfig);
+  build = gulp.series(buildprod, buildconfig);
 }
 if (process.env.NODE_ENV == "lint") {
   build = gulp.series(lint);
