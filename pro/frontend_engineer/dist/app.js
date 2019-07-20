@@ -63,3 +63,12 @@ app.use((0, _awilixKoa.loadControllers)(__dirname + '/controllers/*.js'));
 app.listen(_config.default.port, () => {
   console.log('success running over' + _config.default.port);
 });
+process.on('uncaughtException', function (err) {
+  logger.error(err);
+});
+process.on('unhandledRejection', function (info) {
+  logger.error(info.reason);
+});
+app.on('error', function (err) {
+  logger.error(err);
+});

@@ -1,0 +1,54 @@
+[2019-07-20T13:10:45.556] [ERROR] default - TypeError: dest.on is not a function
+    at Readable.pipe (_stream_readable.js:569:8)
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:65:14)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:59:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:70:13)
+    at <anonymous>
+[2019-07-20T13:11:41.389] [ERROR] default - ReferenceError: res is not defined
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:65:24)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:59:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:69:13)
+    at <anonymous>
+[2019-07-20T13:14:30.883] [ERROR] default - TypeError: dest.on is not a function
+    at Readable.pipe (_stream_readable.js:569:8)
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:65:14)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:59:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:69:13)
+    at <anonymous>
+[2019-07-20T13:15:10.870] [ERROR] default - TypeError: dest.on is not a function
+    at Readable.pipe (_stream_readable.js:569:8)
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:61:14)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:55:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:65:13)
+    at <anonymous>
+[2019-07-20T13:15:11.955] [ERROR] default - TypeError: dest.on is not a function
+    at Readable.pipe (_stream_readable.js:569:8)
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:61:14)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:55:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:65:13)
+    at <anonymous>
+[2019-07-20T13:17:06.730] [ERROR] default - ReferenceError: res is not defined
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:61:24)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:55:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:65:13)
+    at <anonymous>
+[2019-07-20T13:21:47.224] [ERROR] default - { AssertionError [ERR_ASSERTION]: status code must be a number
+    at Object.set status [as status] (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/node_modules/koa/lib/response.js:86:5)
+    at Object.status (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/node_modules/delegates/index.js:92:31)
+    at Promise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:59:22)
+    at Promise (<anonymous>)
+    at createSSRStreamePromise (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:55:16)
+    at BooksController.actionList (/home/wagnxx/wxx/pro/yd_pro/frontend_engineer/dist/controllers/BooksController.js:67:13)
+    at <anonymous>
+  generatedMessage: false,
+  name: 'AssertionError [ERR_ASSERTION]',
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==' }

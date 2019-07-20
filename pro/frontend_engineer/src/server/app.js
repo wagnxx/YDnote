@@ -48,3 +48,15 @@ app.use(loadControllers(__dirname+'/controllers/*.js'))
 app.listen(config.port,()=>{
      console.log('success running over'+config.port)
 })
+
+ 
+process.on('uncaughtException',function(err){
+  logger.error(err);
+});
+process.on('unhandledRejection',function(info){
+  logger.error(info.reason);
+});
+
+app.on('error',function(err){
+  logger.error(err);
+})

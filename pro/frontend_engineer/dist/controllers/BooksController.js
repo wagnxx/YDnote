@@ -9,6 +9,8 @@ var _cheerio = _interopRequireDefault(require("cheerio"));
 
 var _awilixKoa = require("awilix-koa");
 
+var _stream = require("stream");
+
 var _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -35,21 +37,41 @@ let BooksController = (_dec = (0, _awilixKoa.route)("/books"), _dec2 = (0, _awil
     });
 
     if (ctx.request.header["x-pjax"]) {
-      // 站内跳
+      ctx.status = 200;
+      ctx.type = "html"; // 站内跳
+
       const $ = _cheerio.default.load(html); //   ctx.body = $("#js-hooks-data").html();
 
 
       let result = "";
       $(".pjaxcontext").each(function () {
-        result += $(this).html();
+        // result += $(this).html();
+        ctx.res.write($(this).html());
       });
       $(".lazyload-js").each(function () {
-        result += `<script src="${$(this).attr("src")}"></script>`;
-      });
-      ctx.body = result;
+        // result += `<script src="${$(this).attr("src")}"></script>`;
+        // basket.js
+        // ctx.res.write(`<script>activeJS(${$(this).attr("src")}")</script>`);
+        ctx.res.write(`<script src="${$(this).attr("src")}"></script>`);
+      }); // ctx.body = result;
+
+      ctx.res.end();
     } else {
       // 直接刷
-      ctx.body = html;
+      function createSSRStreamePromise() {
+        return new Promise((resolve, reject) => {
+          const htmlStream = new _stream.Readable();
+          htmlStream.push(html);
+          htmlStream.push(null);
+          ctx.status = 200;
+          ctx.type = "html";
+          htmlStream.on("error", err => {
+            reject(err);
+          }).pipe(ctx.res);
+        });
+      }
+
+      await createSSRStreamePromise(); // ctx.body = html;
     }
   }
 
