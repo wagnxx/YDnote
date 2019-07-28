@@ -1,0 +1,20 @@
+{
+  "name": "ts_nodepro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13"
+  }
+}
