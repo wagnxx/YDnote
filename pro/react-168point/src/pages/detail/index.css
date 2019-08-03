@@ -1,0 +1,17 @@
+.detail{
+
+}
+.nav ul{
+    display: flex;
+}
+.nav ul li{
+    margin:10px;
+    list-style: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 4px 6px;
+}
+.content{
+    border: 1px solid #ddd;
+    padding: 2%;
+}
