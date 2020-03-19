@@ -8,7 +8,7 @@ react在v16后有了较大的改动，主要体现在主推函数式组件，新
 - useContext
 基本的hooks是useState,useEffect,useContext这三个，其他的是按对应功能拓展过附加来的看了常用的就这几个，比较少，终于松口气了，喝口水的功夫接下来对它们一一使用
 
-1.useState,很简单直接上用法
+1. useState,很简单直接上用法
 ```
 function Example() {
   // Declare a new state variable, which we'll call "count"
@@ -25,7 +25,7 @@ function Example() {
 }
 ```
 
-2.memo
+2. memo
 ```
 //memo让一个函数组件变成一个纯组件
 // memo主要解决的问题是，在同一个父组件中，两个不相干的子组件发生改变，导致父组件从新渲染，从而导致其他组件也跟着渲染；memo的出现可以解决这个问题，对一个组件包裹下便不会受到影响
@@ -102,7 +102,7 @@ export default ()=>{
 
 ```
 
-4.useCallback
+4. useCallback
 
 ```
      const onClick = useCallback(()=>{
@@ -112,7 +112,7 @@ export default ()=>{
     },[]);
 
 ```
-5.useEffect 
+5. useEffect 
 
 ```
  //执行三个生命周期，DidMount,DidUpdate,WillUnmount
@@ -138,7 +138,7 @@ export default ()=>{
     },[]);
 
 ```
-6.ref的几个hook很简单，直接上代码
+6. ref的几个hook很简单，直接上代码
 ```
 // forwardRef和useImperativeHandle是一对
 const ContextComp = forwardRef((props, ref) => {
@@ -173,7 +173,7 @@ export default () => {
 };
 
 ```
-7.useContext，是个很重要的hooks，不过用起来很简单，具体见下面代码一目了然
+7. useContext，是个很重要的hooks，不过用起来很简单，具体见下面代码一目了然
 
 ```
 
