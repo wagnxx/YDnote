@@ -1,4 +1,4 @@
-#redux 源码分析
+# redux 源码分析
 > 先了解下redux的组成部分初步了解它的结构和数据流向
 1. redux来源于flux架构，flux架构核心是 Action,Dispatcher,Store,View这个几个，架构方案是：
 - 用户访问View
