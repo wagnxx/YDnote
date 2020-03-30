@@ -202,3 +202,120 @@ compiler.hooks.make.tapAsync(
 
 
 ## make 过程
+
+1. make 流程
+- 调用 loaders 对模块的原始代码进行编译，转换成标准的JS代码
+- 调用 acorn 对JS代码进行语法分析，然后收集其中的依赖关系。每个模块都会记录自己的依赖关系，从而形成一颗关系树
+
+2. 代码流程
+
+```
+// compiler.hooks.make.tapAsync 触发
+
+	compilation.addEntry(context, dep, name, callback);
+
+// compilation.js
+
+	addEntry(context, entry, name, callback) {
+		this._addModuleChain();
+	}
+	_addModuleChain(){
+		this.buildModule(module, false, null, null, err 
+	}
+	buildModule(){
+			module.build(
+			this.options,
+			this,
+			....)
+	}
+
+// NormalModule.js
+
+	build(options, compilation, resolver, fs, callback) {
+			return this.doBuild(options, compilation, resolver, fs, err => {
+
+				const handleParseResult = result => {
+					this._lastSuccessfulBuildMeta = this.buildMeta;
+					this._initBuildHash(compilation);
+					return callback();
+				};
+
+				const result = this.parser.parse(this.ast||);
+
+				handleParseResult(result);
+
+
+			});
+	}
+
+
+	doBuild(options, compilation, resolver, fs, callback) {
+		const loaderContext = this.createLoaderContext(
+		resolver,
+		options,
+		compilation,
+		fs
+		);
+
+		runLoaders(
+			{
+				resource: this.resource,
+				loaders: this.loaders,
+				context: loaderContext,
+				readResource: fs.readFile.bind(fs)
+			},(err)=>{
+				if(result) {
+					this.cacheable = result.cacheable;
+					this.fileDependencies = result.fileDependencies;
+					this.contextDependencies = result.contextDependencies;
+				}
+
+				const resourceBuffer = result.resourceBuffer;
+				const source = result.result[0]; // 这里就是 babel-loader 编译后的代码
+				const sourceMap = result.result[1];
+
+				// this._source 是一个 对象，有name和value两个字段，name就是我们的文件路径，value就是 编译后的JS代码
+				this._source = this.createSource(asString(source), resourceBuffer, sourceMap);
+				return callback();
+			});
+
+	}
+
+```
+
+3. make 完毕就进入了 compilation.seal阶段，该阶段主要是基于compilation和template进行render，最后生成文件boundle去dist
+- seal 流程
+
+```
+	seal(){
+		this.createChunkAssets();
+	}
+
+
+	createChunkAssets() {
+		const outputOptions = this.outputOptions;
+		const cachedSourceMap = new Map();
+
+		for (let i = 0; i < this.chunks.length; i++) {
+			const chunk = this.chunks[i];
+			const template = chunk.hasRuntime()
+				? this.mainTemplate
+				: this.chunkTemplate;
+			const manifest = template.getRenderManifest({});
+
+			this.emitAsset(file, source, assetInfo);
+			chunk.files.push(file);
+			this.hooks.chunkAsset.call(chunk, file);
+
+
+
+
+		}
+
+
+
+	}
+
+```
+
+- template.getRenderManifest
