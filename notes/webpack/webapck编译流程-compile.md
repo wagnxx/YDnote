@@ -108,6 +108,26 @@ compile执行流程：
 		});
 	}
 
+### 从以上代码可知，compile整个流程是：
+	beforeRun
+		|
+		|-> beforeCompile
+			  |
+			  |-> compile,newCompilation(params)
+			  		|
+					->make
+						|
+						|-> compilation.finish
+								|
+								|-> compilation.seal
+									|
+									|-> afterCompile
+										|
+										|->onCompiled
+											|
+											|-> finalCallback
+												|
+												|-> compilerCallback
+													|
+													|-> stdout.write(`${statsString}\n${delimiter}`)
 ```
-
-### 从以上代码可知，compile整个流程是：beforeRun->beforeCompile->compile,newCompilation(params)->make->compilation.finish->compilation.seal->afterCompile->onCompiled->finalCallback->compilerCallback->stdout.write(`${statsString}\n${delimiter}`)
