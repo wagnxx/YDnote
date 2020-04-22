@@ -171,4 +171,109 @@ iniCssExtractPlugin.loader，当解析到css文件时，会首先执行MiniCssEx
  
  ```
 
- - compilation.finish,compilation.seal
+ - compilation.finish,compilation.seal,这部分执行的代码也很多，主要任务有 ：optimizeDependencies，buildChunkGraph，
+ optimizeModules，optimizeChunks，optimizeTree，optimizeChunkModules，createModuleAssets，summarizeDependencies，
+ optimizeChunkAssets，optimizeAssets，afterSeal
+
+ ```
+	finish(callback) {
+		const modules = this.modules;
+		this.hooks.finishModules.callAsync(modules, err => {
+			if (err) return callback(err);
+
+			for (let index = 0; index < modules.length; index++) {
+				const module = modules[index];
+				this.reportDependencyErrorsAndWarnings(module, [module]);
+			}
+
+			callback();
+		});
+	}
+
+
+   // callback 回向了 compilation.seal
+
+	seal(callback) {
+		this.hooks.seal.call();
+		this.hooks.optimizeDependencies.call(this.modules);
+		this.hooks.afterOptimizeDependencies.call(this.modules);
+
+		this.hooks.beforeChunks.call();
+		this.assignDepth(module);
+		buildChunkGraph(
+			this,
+			/** @type {Entrypoint[]} */ (this.chunkGroups.slice())
+		);
+		this.sortModules(this.modules);
+		this.hooks.afterChunks.call(this.chunks);
+
+		this.hooks.optimize.call();
+
+		this.hooks.optimizeModules.call(this.modules) 
+		this.hooks.afterOptimizeModules.call(this.modules);
+
+		this.hooks.optimizeChunks.call(this.chunks, this.chunkGroups);
+		this.hooks.afterOptimizeChunks.call(this.chunks, this.chunkGroups);
+
+		this.hooks.optimizeTree.callAsync(this.chunks, this.modules, err => {
+			this.hooks.afterOptimizeTree.call(this.chunks, this.modules);
+			this.hooks.optimizeChunkModules.call(this.chunks, this.modules) 
+			this.hooks.afterOptimizeChunkModules.call(this.chunks, this.modules);
+
+			const shouldRecord = this.hooks.shouldRecord.call() !== false;
+
+			if (shouldRecord) {
+				this.hooks.recordModules.call(this.modules, this.records);
+				this.hooks.recordChunks.call(this.chunks, this.records);
+			}
+
+			this.hooks.beforeHash.call();
+			this.createHash();
+			this.hooks.afterHash.call();
+
+			if (shouldRecord) {
+				this.hooks.recordHash.call(this.records);
+			}
+
+			this.hooks.beforeModuleAssets.call();
+			this.createModuleAssets();
+			if (this.hooks.shouldGenerateChunkAssets.call() !== false) {
+				this.hooks.beforeChunkAssets.call();
+				this.createChunkAssets();
+			}
+			this.hooks.additionalChunkAssets.call(this.chunks);
+			this.summarizeDependencies();
+			if (shouldRecord) {
+				this.hooks.record.call(this, this.records);
+			}
+
+			this.hooks.additionalAssets.callAsync(err => {
+				this.hooks.optimizeChunkAssets.callAsync(this.chunks, err => {
+	
+					this.hooks.afterOptimizeChunkAssets.call(this.chunks);
+					this.hooks.optimizeAssets.callAsync(this.assets, err => {
+						this.hooks.afterOptimizeAssets.call(this.assets);
+						if (this.hooks.needAdditionalSeal.call()) {
+							this.unseal();
+							return this.seal(callback);
+						}
+						return this.hooks.afterSeal.callAsync(callback);
+					});
+				});
+			});
+		});
+	}
+
+ ```
+
+ - afterSeal 封装完成后就进入了compiler.hooks.afterCompile阶段，callback最终走向finalCallback
+ ```
+    this.hooks.afterCompile.callAsync(compilation, err => {
+        if (err) return callback(err);
+
+        return callback(null, compilation);
+    });
+
+ ```
+### 感想
+> 花了三天的时间终于把webpack打包的整个流程的源码读完了，三天时间虽然不多，但每天都是全天的全身心的投入，有时读到某个很关键的时候，知道代码所表达的意思，但就是不知道它是怎么引入的，在什么情况下调，着实让人抓狂，因为我对一件事一旦研究就得见底，不然白花时间了很亏，技术太深的看不懂我就认了，私下里花时间补回来，但对难度并不高的挡住去路时就开始怀疑基础还不够扎实。有些问题在网上一搜便有了答案，这种问题就很友善了，但有些问题你没法从网上得知，比如源码前前后后都会出现的某个 hooks.xxx.call方法，它就是广播一下，但到处的plugin里找不到注册者，那它只能在用户自定义的插件中了，但不管在内部的plugin还是外部用户的plugin你都得要从内部的pluigin中看一看，万一注册了什么重要的钩子岂不是直接忽略掉呢，这一点对于初次读webpack的同学真不友好，不过庆幸的一点是当你陷入陷阱时及时上网查下别人的理解，陷进几次坑后再读webpack就感觉它的流程其实很清晰的。另外，还还有一个render部分属于template内容就不在这里读了，因为我之前已经了解过它的功能，再者我这几天也没空，后期有空单独品品。
