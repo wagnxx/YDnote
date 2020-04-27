@@ -271,4 +271,26 @@ function performUnitOfWork(workInProgress) {
 
 
 
-6. beginWork
+6. beginWork，bailoutOnAlreadyFinishedWork，completeUnitOfWork这部分的内容挺多的，后续有空在单独分析
+
+```
+function bailoutOnAlreadyFinishedWork(
+  current: Fiber | null,
+  workInProgress: Fiber,
+  renderExpirationTime: ExpirationTime,
+): Fiber | null {
+  const childExpirationTime = workInProgress.childExpirationTime
+  if (
+    childExpirationTime === NoWork ||
+    childExpirationTime > renderExpirationTime
+  ) {
+    return null
+  } else {
+    cloneChildFibers(current, workInProgress)
+    return workInProgress.child
+  }
+}
+
+这里根据之前设置的childExpirationTime来判断子树是否需要更新，如果子树也不需要更新则就直接return null了，代表可以直接complete了。如果有更新还是需要调和子节点。
+
+```
