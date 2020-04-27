@@ -1,4 +1,4 @@
-# react源码初探之渲染流程(1)
+# react源码初探之渲染流程(3)
 > 由于内容较多，本小节主要内容是scheduler.unstable_scheduleCallback部分
 
  ### 本小节主要任务以下几点：

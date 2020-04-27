@@ -1,4 +1,4 @@
-# react源码初探之渲染流程(1)
+# react源码初探之渲染流程(2)
 > 由于内容较多，本小节主要内容是scheduleWork阶段的requestWork，走到scheduler.unstable_scheduleCallback之前
 
  ### 本小节主要任务以下几点：
