@@ -9,7 +9,7 @@
 - react源码初探之渲染流程(2) ，scheduleWork阶段的requestWork，走到scheduler.unstable_scheduleCallback
 - react源码初探之渲染流程(3) ，scheduler.unstable_scheduleCallback阶段 
 - react源码初探之渲染流程(4) ，scheduler.unstable_scheduleCallback中触发Callback，即performWorkAsync
-- react源码初探之渲染流程(5) ，commit阶段
+- react源码初探之渲染流程(5) ，beginWork,commit阶段
 
 - react源码分析-各模块分解 ，对整个流程的大回顾
 
