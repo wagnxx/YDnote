@@ -1,0 +1,136 @@
+class Component{
+    add(){}
+    remove(){}
+    getChild(i){}
+    operation(){}
+}
+class Leaf extends Component{
+    constructor(name){
+        super();
+        this.name=name;
+    }
+    add(){}
+    remove(){}
+    getChild(){
+        return null;
+    }
+    operation(){
+        console.log(`树叶 ${this.name} ：被访问！`);
+    }
+
+}
+class Composite extends Component{
+    constructor(){
+        super();
+        this.children=new Set();
+    }
+    add(c){
+        this.children.add(c);
+    }
+    remove(c){
+        this.children.delete(c);
+    }
+    getChild(i){
+        let arr=[...this.children];
+        return arr[i];
+    }
+    operation(){
+        for (const obj of this.children) {
+            obj.operation();
+        }
+    }
+}
+
+function test(){
+    const c0 = new Composite();
+    const c1 = new Composite();
+
+    const left1 = new Leaf('1');
+    const left2 = new Leaf('2');
+    const left3 = new Leaf('3');
+
+    c0.add(left1);
+    c0.add(c1);
+
+    c1.add(left2);
+    c1.add(left3);
+
+    c0.operation();
+
+    window.c0=c0;
+}
+
+/**
+java 版本
+
+package composite;
+import java.util.ArrayList;
+public class CompositePattern
+{
+    public static void main(String[] args)
+    {
+        Component c0=new Composite(); 
+        Component c1=new Composite(); 
+        Component leaf1=new Leaf("1"); 
+        Component leaf2=new Leaf("2"); 
+        Component leaf3=new Leaf("3");          
+        c0.add(leaf1); 
+        c0.add(c1);
+        c1.add(leaf2); 
+        c1.add(leaf3);          
+        c0.operation(); 
+    }
+}
+//抽象构件
+interface Component
+{
+    public void add(Component c);
+    public void remove(Component c);
+    public Component getChild(int i);
+    public void operation();
+}
+//树叶构件
+class Leaf implements Component
+{
+    private String name;
+    public Leaf(String name)
+    {
+        this.name=name;
+    }
+    public void add(Component c){ }           
+    public void remove(Component c){ }   
+    public Component getChild(int i)
+    {
+        return null;
+    }   
+    public void operation()
+    {
+        System.out.println("树叶"+name+"：被访问！"); 
+    }
+}
+//树枝构件
+class Composite implements Component
+{
+    private ArrayList<Component> children=new ArrayList<Component>();   
+    public void add(Component c)
+    {
+        children.add(c);
+    }   
+    public void remove(Component c)
+    {
+        children.remove(c);
+    }   
+    public Component getChild(int i)
+    {
+        return children.get(i);
+    }   
+    public void operation()
+    {
+        for(Object obj:children)
+        {
+            ((Component)obj).operation();
+        }
+    }    
+}
+
+*/
