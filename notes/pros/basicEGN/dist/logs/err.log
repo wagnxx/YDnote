@@ -1,0 +1,13 @@
+ [2020-05-11T19:03:28.760] [ERROR] default - AwilixResolutionError: Could not resolve 'indexService'.
+
+Resolution path: indexService
+    at resolve (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/awilix/lib/container.js:238:23)
+    at Object.get (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/awilix/lib/container.js:65:32)
+    at new IndexController (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/dist/controllers/IndexController.js:16:5)
+    at newClass (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/awilix/lib/resolvers.js:85:24)
+    at Object.resolve (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/awilix/lib/resolvers.js:294:20)
+    at Object.build (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/awilix/lib/container.js:311:37)
+    at memberInvoker (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/awilix-koa/lib/invokers.js:83:38)
+    at dispatch (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/koa-compose/index.js:42:32)
+    at /home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/@koa/router/lib/router.js:368:16
+    at dispatch (/home/wagnxx/wxx/pro/note/yd/YDnote/notes/pros/basicEGN/node_modules/koa-compose/index.js:42:32)

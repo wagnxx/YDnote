@@ -1,0 +1,36 @@
+{
+  "name": "basic-egn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client:dev": "scripty",
+    "client:prod": "scripty",
+    "server:start": "scripty",
+    "build:dev": "scripty",
+    "build:prod": "scripty"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "awilix": "^4.2.6",
+    "awilix-koa": "^4.0.0",
+    "babel-core": "^6.26.3",
+    "koa": "^2.11.0",
+    "koa-static": "^5.0.0",
+    "log4js": "^6.2.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "cross-env": "^7.0.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-rollup": "^2.17.0",
+    "gulp-watch": "^5.0.1",
+    "scripty": "^2.0.0",
+    "supervisor": "^0.12.0"
+  }
+}
