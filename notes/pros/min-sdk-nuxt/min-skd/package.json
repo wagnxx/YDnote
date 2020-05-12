@@ -1,0 +1,23 @@
+{
+  "name": "min-skd",
+  "version": "1.0.0",
+  "description": "My wicked Nuxt.js project",
+  "author": "wagnxx",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@koa/router": "^8.0.8",
+    "cross-env": "^5.2.0",
+    "iview": "^3.1.5",
+    "koa": "^2.6.2",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
