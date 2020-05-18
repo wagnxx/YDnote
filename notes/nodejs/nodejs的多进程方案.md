@@ -23,13 +23,14 @@
 - 进程创建
     进程创建有多种方式,这里以child_process模块和cluster模块为主
     + child_process 是Nodejs的内置模块,内部有几个重要的函数:
-    ```
+```    
 child_process.spawn()：适用于返回大量数据，例如图像处理，二进制数据处理。
 child_process.exec()：适用于小量数据，maxBuffer 默认值为 200 * 1024 超出这个默认值将会导致程序崩溃，数据量过大可采用 spawn。
 child_process.execFile()：类似 child_process.exec()，区别是不能通过 shell 来执行，不支持像 I/O 重定向和文件查找这样的行为
 child_process.fork()： 衍生新的进程，进程之间是相互独立的，每个进程都有自己的 V8 实例、内存，系统资源是有限的，不建议衍生太多的子进程出来，通长根据系统** CPU 核心数**设置。
 
-    ```
+```
+
 ```
 // master process
 const http = require('http');
@@ -103,6 +104,73 @@ if (cluster.isMaster) {
     })
     .listen(8000);
 }
+```
+
+
+
+
+### NodeJS 线程
+Node中的核心是v8引擎,在Node启动后会创建v8实例,这个实例是多线程的,主要包含:
+- 主线程:编译,执行代码
+- 编译/优化线程: 在主线程执行的时候,可以优化代码
+- 分析器线程:记录分析代码运行时间,为Crankshaft优化代码提供依据
+- 垃圾回收的几个线程
+
+1. 多线程的创建:
+```js
+const {
+  isMainThread,
+  parentPort,
+  workerData,
+  threadId,
+  MessageChannel,
+  MessagePort,
+  Worker
+} = require('worker_threads');
+
+function mainThread() {
+  for (let i = 0; i < 5; i++) {
+    const worker = new Worker(__filename, { workerData: i });
+    worker.on('exit', code => { console.log(`main: worker stopped with exit code ${code}`); });
+    worker.on('message', msg => {
+      console.log(`main: receive ${msg}`);
+      worker.postMessage(msg + 1);
+    });
+  }
+}
+
+function workerThread() {
+  console.log(`worker: workerDate ${workerData}`);
+  parentPort.on('message', msg => {
+    console.log(`worker: receive ${msg}`);
+  }),
+  parentPort.postMessage(workerData);
+}
+
+if (isMainThread) {
+  mainThread();
+} else {
+  workerThread();
+}
 
 
 ```
+
+- worker_thread 模块的几个参数
+    + isMainThread: 是否是主线程，源码中是通过 threadId === 0 进行判断的。
+    + MessagePort: 用于线程之间的通信，继承自 EventEmitter。
+    + MessageChannel: 用于创建异步、双向通信的通道实例。
+    + threadId: 线程 ID。
+    + Worker: 用于在主线程中创建子线程。第一个参数为 filename，表示子线程执行的入口。
+    + parentPort: 在 worker 线程里是表示父进程的 MessagePort 类型的对象，在主线程里为 null
+    + workerData: 用于在主进程中向子进程传递数据（data 副本）
+
+
+### 多进程多线程的比较,以以下几个方面:
+
+- 数据,多进程用IPC,数据分开同步简单,多线程中共享进程数据,数据共享简单,同步复杂,各有千秋
+- CPU,内存:多进程占比较多,多线程对CPU利用率高,多线程较好
+- 销毁,切换:多线程复杂且慢,选择多线程
+- coding:多进程简单方便
+- 可靠性:多进程中进程独立运行,不会相互影响
+- 分布式:多进程中可用于多机多核分布式,易于扩展,多线程只能用于多核分布式,这一块多进程更胜一筹
