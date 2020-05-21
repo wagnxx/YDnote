@@ -1,0 +1,1 @@
+console.log('testjs of asset dir');
