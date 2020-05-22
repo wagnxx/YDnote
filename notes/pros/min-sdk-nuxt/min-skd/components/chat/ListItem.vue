@@ -8,6 +8,9 @@
     </span>
     <span class="chat__list__item__avatar" v-if="chat.me">
       <Avatar shape="square" icon="ios-person" />
+      <span>
+        {{chat.name}}
+      </span>
     </span>
   </div>
 </template>

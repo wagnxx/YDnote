@@ -20,3 +20,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## 项目进展
+- permanence 前端参数收集,下个版本和服务端打通;chat模块正常进默认群,下个版本实现创建群,头像选择

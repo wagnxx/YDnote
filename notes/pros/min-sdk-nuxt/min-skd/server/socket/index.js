@@ -9,6 +9,8 @@ module.exports = {
       });
 
 
+    //   io.emit('connection','链接成功')
+
       socket.on("disconnect", () => {
         console.log("user disconnected!");
       });

@@ -11,7 +11,8 @@ const store = new Vuex.Store({
       { id: 3, content: [{ time: "33", text: "hello everyone !!" }], me: true }
     ],
     user: {
-      id: null
+      id: null,
+      name:null
     }
   },
   mutations: {
@@ -19,7 +20,7 @@ const store = new Vuex.Store({
       state.chatList = [...state.chatList, { ...paylod }];
     },
     setUserId(state, paylod) {
-      state.user.id = paylod;
+      state.user={...state.user,...paylod}
     }
   }
 });

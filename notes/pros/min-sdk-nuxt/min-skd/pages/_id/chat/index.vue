@@ -1,17 +1,24 @@
 <template>
   <div>
     <h3>chat page</h3>
+    <Button @click="login">登录</Button>
+    <h3>
+      本人信息:
+      昵称:{{nick}}
+      id:{{usrId?usrId:'还没创建,请先注册'}}
+    </h3>
     <h3>chat list</h3>
 
     <div>
       <span>输入昵称</span>
       <input type="text" id="input" ref="input" v-model="nick" />
-      <Button @click="enterGroup">注册进群</Button>
+      <Button @click.native.stop="registerenterGroup">注册进群</Button>
       <Button @click="enterGroupChat">进入群聊</Button>
     </div>
     <div>
-      <h3>user list (已注册,会加入默认大群)</h3>
-      <p v-for="user of getRegisted" :key="user.id">nick:{{user.nick}} id:{{user.id}}</p>
+      <List header="user list (已注册,会加入默认大群)">
+        <ListItem v-for="user of getRegisted" :key="user.id">nick:{{user.nick}} id:{{user.id}}</ListItem>
+      </List>
     </div>
   </div>
 </template>
@@ -25,21 +32,28 @@ export default {
       msgs: [],
       nick: "",
       socket: null,
-      usrId: null,
+
       registerUsers: []
     };
   },
   computed: {
     getRegisted() {
       return this.registerUsers;
+    },
+    usrId() {
+      return this.$store.state.user.id;
     }
   },
   methods: {
+    login() {
+      this.$store.commit("setUserId", {
+        id: window.socket.id,
+        name: this.nick
+      });
+    },
     registerSuccess(msg) {
-      configLocal(localforage);
-      window.localforage = localforage;
       console.log(msg);
-      this.$store.commit("setUserId", msg.id);
+
       localforage.getItem("registerUsers").then(val => {
         let users = val;
         if (users) {
@@ -60,34 +74,53 @@ export default {
       }
       return result;
     },
-    enterGroup() {
+    registerenterGroup() {
       let userObj = {};
-      userObj.id = this.createId18Bit();
+      userObj.id = this.usrId;
       userObj.nick = this.nick;
-      this.usrId = userObj.id;
-      this.socket.emit("register", userObj);
+
+      localforage.getItem("registerUsers").then(val => {
+        if (!val || val.every(el => el.id !== userObj.id)) {
+          this.$store.commit("setUserId", { id: window.socket.id });
+          this.socket.emit("register", userObj);
+        } else {
+          alert("已注册");
+        }
+      });
     },
     enterGroupChat() {
       this.$router.push("/chat/chatDetail");
     },
     sendMsgSuccess(msg) {
-      if(msg.id === this.usrId) {
+      if (msg.id === this.usrId) {
         msg.me = true;
       }
-      this.$store.commit("addChatList",msg);
+      this.$store.commit("addChatList", msg);
     }
   },
   mounted() {
-    import("socket.io-client").then(so => {
-      const socket = so.default();
-      window.socket = this.socket = socket;
-      socket.on("register-success", this.registerSuccess);
-      socket.on("sendMsg-success", this.sendMsgSuccess);
-    });
+    let _this = this;
+    import("socket.io-client")
+      .then(so => {
+        const socket = so.default();
 
-    localforage.getItem("registerUsers").then(val => {
-      this.registerUsers = val;
-    });
+        window.socket = this.socket = socket;
+        socket.on("register-success", this.registerSuccess);
+        socket.on("sendMsg-success", this.sendMsgSuccess);
+        // socket.on("connection", msg=>{
+        //   debugger
+        // });
+      })
+      .then(() => {
+        this.$nextTick(() => {
+          configLocal(localforage);
+          window.localforage = localforage;
+
+          localforage.getItem("registerUsers").then(val => {
+            this.registerUsers = val;
+          });
+        });
+      });
   }
 };
 </script>

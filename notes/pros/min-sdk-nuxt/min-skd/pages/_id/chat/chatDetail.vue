@@ -3,7 +3,10 @@
     <div class="chatList">
       <ChatList :chatList="chatList" />
     </div>
-    <Input type="text" v-model="val" class="footerInput" @on-enter="sendMsg" />
+    <div class="footerInput">
+      <Input type="text" v-model="val"  @on-enter="sendMsg" />
+      <Button type="primary" @click="sendMsg">提交</Button>
+    </div>
     <!-- <Affix :offset-bottom="0"> 
     </Affix>-->
   </div>
@@ -17,7 +20,7 @@ export default {
   },
   data() {
     return {
-      val: "",
+      val: ""
       // chatList: this.$store.state.chatList
     };
   },
@@ -34,6 +37,7 @@ export default {
       let chat = {};
       chat.content = [{ text: this.val, time: new Date() }];
       chat.id = this.getId;
+      chat.name = this.$store.state.user.name;
 
       window.socket.emit("sendMsg", chat);
       console.log("send ", chat);
@@ -53,6 +57,10 @@ export default {
   position: absolute;
   bottom: 0;
   width: 100%;
+  display: flex;
+}
+.footerInput input {
+  /* margin-right: 19px; */
 }
 .chatList {
   height: calc(100% - 36px);
