@@ -20,8 +20,6 @@
 - [x] 垃圾回收机制
 - [x] new生成了一个对象的过程（核心return this）
 - [x] cookie长度限制
-- [x] websocket实现原理
-- [x] websock的底层原理讲讲
 - [ ] ES6用过吗，新增了那些东西，你用到过什么 symbol
 - [ ] JS设计模式有哪些
 - [ ] 了解web移动开发吗，移动端适配方案有哪些
@@ -71,6 +69,8 @@
 - [ ] HTTP1.1中Etg和f-None-Match哪个权重比较大
 - [ ] HTTP各版本比较
 - [ ] 了解TCP吗，数据结构简单介绍一下以及你的想法
+- [x] websocket实现原理
+- [x] websock的底层原理讲讲
 
 ### 其他
 - [ ] 协同开发需要注意什么
