@@ -6,23 +6,22 @@
 - [ ] react的事件绑定和原生有什么区别吗
 - [ ] react的virtual DOM和Diff算法
 - [ ] React的生命周期
-- [ ] redux原理讲讲
+- [x] redux原理讲讲
 - [ ] Vue的生命周期
 - [ ] vuex的状态管理的原理是什么
 - [x] webpack的插件大致流程
 - [ ] mvvm，mvc，mvp区别
 - [ ] boostrap的底层原理
-- [ ] 打开连接到网页呈现的流程
-- [ ] JS如何计算浏览器的渲染时间的
-- [ ] 事件循环机制 eventloop
-- [ ] 定时器setTimeout的运行机制
-- [ ] JS的如何实现倒计时，为什么不准，校正方式
-- [ ] event loop讲讲
-- [ ] 垃圾回收机制
-- [ ] new生成了一个对象的过程（核心return this）
-- [ ] cookie长度限制
-- [ ] websocket实现原理
-- [ ] websock的底层原理讲讲
+- [x] 打开连接到网页呈现的流程
+- [x] JS如何计算浏览器的渲染时间的
+- [x] 定时器setTimeout的运行机制
+- [x] JS的如何实现倒计时，为什么不准，校正方式
+- [x] event loop讲讲
+- [x] 垃圾回收机制
+- [x] new生成了一个对象的过程（核心return this）
+- [x] cookie长度限制
+- [x] websocket实现原理
+- [x] websock的底层原理讲讲
 - [ ] ES6用过吗，新增了那些东西，你用到过什么 symbol
 - [ ] JS设计模式有哪些
 - [ ] 了解web移动开发吗，移动端适配方案有哪些
@@ -68,8 +67,8 @@
 - [ ] 强缓存，协商缓存什么时候用哪个
 - [ ] HTTP2.0的优势
 - [ ] tcp ip分成
-- [ ] HTTP- [ ]0和HTTP- [ ]1相关我让你听
-- [ ] HTTP- [ ]1中Etg和f-None-Match哪个权重比较大
+- [ ] HTTP1.0和HTTP1.1相关我让你听
+- [ ] HTTP1.1中Etg和f-None-Match哪个权重比较大
 - [ ] HTTP各版本比较
 - [ ] 了解TCP吗，数据结构简单介绍一下以及你的想法
 
