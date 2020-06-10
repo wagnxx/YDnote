@@ -84,6 +84,39 @@ JS设计模式有哪些
 ```
 
 ## nodejs了解多少
+```js
+/**
+ * 
+ * Nodejs的线程管理
+ *  - 由worker_threads包实现,里面包含Worker,parentPort,isMainThreads,workerData
+ *  - Worker: 用于在主线程中创建子线程。第一个参数为 filename，表示子线程执行的入口。
+ *  - isMainThread: 是否是主线程，源码中是通过 threadId === 0 进行判断的。 
+ *  - parentPort: 在 worker 线程里是表示父进程的 MessagePort 类型的对象，在主线程里为 null
+ *  - workerData: 用于在主进程中向子进程传递数据（data 副本）
+ * 
+ * 线程的哪些资源共享，哪些资源不共享
+ *  - 共享的有 堆,进程id
+ *  - 独有的有:栈,寄存器
+ * 
+ * pm2除了监控还能干什么，如何实现
+ * 前端监控，pm2，如果我服务器挂了，如何快速发现并且定位错误
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+*/
+```
 
 
 
