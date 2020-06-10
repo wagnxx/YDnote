@@ -30,13 +30,13 @@
 - [x] pm2除了监控还能干什么，如何实现
 - [x] 前端监控，pm2，如果我服务器挂了，如何快速发现并且定位错误
 - [x] 线程的哪些资源共享，哪些资源不共享
-- [ ] IO多路复用
-- [ ] express里面登录的session服务怎么样实现分布式服务
+- [x] IO多路复用
+- [x] express里面登录的session服务怎么样实现分布式服务
 - [ ] 写一个API实现insertAfter
 - [ ] 你有Native开发经验吗，讲下Android如何调用页面的资源
-- [ ] Linux命令用的多吗，怎么样进行进程间通信
-- [ ] koa generator能讲一下吗
-- [ ] websocket协议，nodejs中有哪些实现了这个协议
+- [x] Linux命令用的多吗，怎么样进行进程间通信
+- [x] koa generator能讲一下吗
+- [x] websocket协议，nodejs中有哪些实现了这个协议
 - [ ] Socks5代理是如何实现的，读过协议吗
 - [ ] 你遇到的最有难度的技术问题是什么
 - [ ] 酸酸是如何实现穿墙的
