@@ -10,8 +10,8 @@
 - [x] Vue的生命周期
 - [x] vuex的状态管理的原理是什么
 - [x] webpack的插件大致流程
-- [ ] mvvm，mvc，mvp区别
-- [ ] boostrap的底层原理
+- [x] mvvm，mvc，mvp区别
+- [x] boostrap的底层原理
 - [x] 打开连接到网页呈现的流程
 - [x] JS如何计算浏览器的渲染时间的
 - [x] 定时器setTimeout的运行机制
