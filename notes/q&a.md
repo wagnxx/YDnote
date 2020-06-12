@@ -66,19 +66,56 @@ HTTP2.0的优势
 
 ```js
 /**
-了解web移动开发吗，移动端适配方案有哪些
-    - 在head 设置width=device-width的viewport‘, 在css中使用px
-    - 在适当的场景使用flex布局，或者配合vw进行自适应
-    - 在跨设备类型的时候（pc <-> 手机 <-> 平板）使用媒体查询
-    - 在跨设备类型如果交互差异太大的情况，考虑分开项目开发
-
-amd，cmd规范
-    - AMD 推崇依赖前置、提前执行，CMD推崇依赖就近、延迟执行
-    - AMD的代表requiJS,CMD的代表 sea.js
-ES6用过吗，新增了那些东西，你用到过什么 symbol
-JS设计模式有哪些
-内存泄露的排除定位和解决方法
-
+ * 
+ * 了解web移动开发吗，移动端适配方案有哪些
+ *      - 在head 设置width=device-width的viewport‘, 在css中使用px
+ *      - 在适当的场景使用flex布局，或者配合vw进行自适应
+ *      - 在跨设备类型的时候（pc <-> 手机 <-> 平板）使用媒体查询
+ *      - 在跨设备类型如果交互差异太大的情况，考虑分开项目开发
+ *
+ * amd，cmd规范
+ *      - AMD 推崇依赖前置、提前执行，CMD推崇依赖就近、延迟执行
+ *      - AMD的代表requiJS,CMD的代表 sea.js
+ * 
+ * react,vue 区别,如何选择技术栈
+ *      - react16.8之前 和vue的 vdom差不多,vue还做过diff的优化,react16.8以后新增了fiber,逼格明显增*        高,同时利用requestIdleCallback对 update 分批分片更新,性能更好,技术点也很新颖;vue本身都是在
+ *        react和ng基础上诞生的更轻便的库,它所具有的功能在ng和react中都有
+ *      - 技术选择看社区对依赖的支持和成熟度,轻应用优先选vue
+ * 
+ * react的virtual DOM和Diff算法
+ *      - vdom 都是js对象,用来描述dom对象
+ *      - diff主要采用先序深度优先遍历,找出异常抛出一个patch进行更新
+ * react的事件绑定和原生有什么区别吗
+ *      - react把合成时间机制,事件都委托到document上,通过冒泡触发,原生的是直接绑定
+ * 
+ * React的生命周期
+ *      - v15 :willMount,render,didMount,(WillReceiveProps),shouldUpdate?,willUpdate,
+ *             render,didupdate,willUnmount
+ *      - v16 :getDerivedStateFromProps,render(update dom and refs),didMount;
+ *              (new props,setState,forceupdate) ,getDerivedStateFromProps,shouldUpdate?,
+ *              render ,didUpdate,willUnmount
+ *      - 注:废弃的:willMount,willReceiveProps,willUpdate.
+ * 
+ * redux原理讲讲
+ *      - redux 是对函数式编程的最佳实践,了解函数式编程可忽略
+ *      - store->container,currentState -> _value,action->f,reducer -> map,middleware -> io
+ *        functor
+ * 
+ * vue数组怎么实现绑定的
+ *      - 重写数组原型链方法,单独对数组写个方法处理
+ *      - v3.以后改用Proxy 就不用这么麻烦了
+ * 
+ * Vue的生命周期
+ *      - beforeCreate,created,beforeMount,mounted,beforeUpdate,updated,beforeDestroy,     *        destroyed
+ * vuex的状态管理的原理是什么
+ *      - 它借鉴了Flux redux的思想,在全局创建一个Store,数据为state,对于state的修改只能通过store内部
+ *        的方法commit来直接修改;它是vue的插件,将其挂在所有的组件上,每个组件都可以访问作为属性
+ * 
+ * vue-router不能解决情况和边界情况
+ * ES6用过吗，新增了那些东西，你用到过什么 symbol
+ * JS设计模式有哪些
+ * 内存泄露的排除定位和解决方法
+ * 
 */
 
 ```

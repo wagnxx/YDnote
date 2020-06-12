@@ -1,14 +1,14 @@
 ##  内容小结及进展
 ### js &　框架
-- [ ] react,vue 区别,如何选择技术栈
-- [ ] vue数组怎么实现绑定的
+- [x] react,vue 区别,如何选择技术栈
+- [x] vue数组怎么实现绑定的
 - [ ] vue-router不能解决情况和边界情况
-- [ ] react的事件绑定和原生有什么区别吗
-- [ ] react的virtual DOM和Diff算法
-- [ ] React的生命周期
+- [x] react的事件绑定和原生有什么区别吗
+- [x] react的virtual DOM和Diff算法
+- [x] React的生命周期
 - [x] redux原理讲讲
-- [ ] Vue的生命周期
-- [ ] vuex的状态管理的原理是什么
+- [x] Vue的生命周期
+- [x] vuex的状态管理的原理是什么
 - [x] webpack的插件大致流程
 - [ ] mvvm，mvc，mvp区别
 - [ ] boostrap的底层原理
